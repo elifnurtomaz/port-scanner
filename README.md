@@ -91,18 +91,12 @@ python main.py --help
 Scanning...
 
 Port 22 (SSH) is OPEN.
-Banner:
-SSH-2.0-OpenSSH_6.6.1p1 Ubuntu-2ubuntu2.13
-
-Port 80 (HTTP) is OPEN.
-Banner:
-HTTP/1.1 200 OK
 
 Scan completed.
 
-Open ports found: 2
+Open ports found: 1
 
-Scan time: 3.32 seconds
+Scan time: 3.50 seconds
 
 Report saved to reports/report.txt
 ```
