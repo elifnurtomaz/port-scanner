@@ -15,8 +15,13 @@ open_ports = []
 
 for port in range(start_port, end_port + 1):
 
-    if scan_port(ip, port):
-        print(f"Port {port} is OPEN.")
+    is_open, banner = scan_port(ip, port)
+
+    if is_open:
+        if banner:
+            print(f"Port {port} is OPEN. Banner: {banner}")
+        else:
+            print(f"Port {port} is OPEN.")
         open_ports.append(port)
 
 end_time = time.time()
