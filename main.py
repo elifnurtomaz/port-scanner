@@ -1,3 +1,4 @@
+import socket
 import argparse
 
 from report import save_report
@@ -45,10 +46,16 @@ for port in range(start_port, end_port + 1):
     is_open, banner = scan_port(ip, port)
 
     if is_open:
+        try:
+            service = socket.getservbyport(port)
+        except OSError:
+            service = "Unknown"
+
         if banner:
-            print(f"Port {port} is OPEN. Banner: {banner}")
+            print(f"Port {port} ({service.upper()}) is OPEN.")
+            print(f"Banner: {banner}")
         else:
-            print(f"Port {port} is OPEN.")
+            print(f"Port {port} ({service.upper()}) is OPEN.")
         open_ports.append(port)
 
 end_time = time.time()
